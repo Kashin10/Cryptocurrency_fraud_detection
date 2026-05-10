@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gnn-fraud-detector
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gnn-fraud-detector
+  template:
+    metadata:
+      labels:
+        app: gnn-fraud-detector
+    spec:
+      containers:
+      - name: gnn-fraud-detector
+        image: gnn-fraud-detector:latest
+        ports:
+        - containerPort: 8501
